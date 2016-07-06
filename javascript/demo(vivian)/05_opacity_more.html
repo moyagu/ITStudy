@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>opacity</title>
+	<style type="text/css">
+		body,div{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background: red;
+			margin: 10px;
+			float: left;
+			fiter:alpha(opacity:30);
+			opacity: 0.3;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementsByTagName('div');
+			for (var i = 0,l = oDiv.length; i < l; i++) {
+				oDiv[i].timer = null;
+				oDiv[i].alpha = 30;
+				oDiv[i].onmouseover = function(){
+					startMove(this,100);
+				}
+				oDiv[i].onmouseout = function(){
+					startMove(this,30);
+				}	
+			};
+		}
+		// var timer = null,
+			// alpha = 30;
+		function startMove(obj, iTarget){
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function(){
+				var speed = 0;
+				speed = obj.alpha > iTarget ? -10 : 10;
+
+				if (obj.alpha == iTarget) {
+					clearInterval(obj.timer);
+				}else{
+					obj.alpha+=speed;
+					obj.style.filter = 'alpha(opacity:'+obj.alpha+')';
+					obj.style.opacity = obj.alpha/100;
+				}
+
+			},30);
+		}
+
+		//不能 解决 多物体 共用的问题
+		/*function startMove(obj, iTarget){
+			var timer = obj.timer,
+				alpha = obj.alpha;
+			clearInterval(timer);
+			timer = setInterval(function(){
+				var speed = 0;
+				speed = alpha > iTarget ? -10 : 10;
+
+				if (alpha == iTarget) {
+					clearInterval(timer);
+				}else{
+					alpha+=speed;
+					obj.style.filter = 'alpha(opacity:'+alpha+')';
+					obj.style.opacity = alpha/100;
+				}
+
+			},30);
+		}*/
+
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>
