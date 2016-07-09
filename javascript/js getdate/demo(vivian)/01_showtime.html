@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript">
+		window.onload = function(){
+			showTime();
+		}
+
+		function showTime(){
+			var myDate = new Date();
+			// alert(myDate);
+			var year  = myDate.getFullYear(),//年
+				month = myDate.getMonth()+1,//月
+				date  = myDate.getDate(),//日
+				day   = myDate.getDay(),//星期 0-6
+				h 	  = myDate.getHours(),//小时
+				i 	  = myDate.getMinutes(),//分钟
+				s 	  = myDate.getSeconds();//秒
+
+				h = checkTime(h);
+				s = checkTime(s);
+
+			var weekDay = new Array(7);
+			weekDay[0] = '星期日';
+			weekDay[1] = '星期一';
+			weekDay[2] = '星期二';
+			weekDay[3] = '星期三';
+			weekDay[4] = '星期四';
+			weekDay[5] = '星期五';
+			weekDay[6] = '星期六';
+
+
+			var el_show = document.getElementById('show');
+
+			el_show.innerHTML = year+'年'+month+'月'+date+'日'+weekDay[day]+h+':'+i+':'+s;
+
+			setTimeout(showTime,500);
+		}
+
+		function checkTime(i){
+			i = i<10?('0'+i):i;
+			return i;
+		}
+	</script>
+</head>
+<body>
+	<div class="content1">
+		<div id="show">显示时间的位置</div>
+	</div>
+</body>
+</html>

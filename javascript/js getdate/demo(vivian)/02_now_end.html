@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>高考倒计时</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript">
+		window.onload = function(){
+			var cur_time = new Date();
+				end_time = new Date('2016,10,1'),
+				left_time = (end_time.getTime()-cur_time.getTime())/(24*60*60*1000);
+			//getTime获取当前时间的毫秒数
+			left_time = Math.ceil(left_time);
+
+			var oTxtshow = document.getElementById('timeShow');
+			oTxtshow.innerHTML = left_time;
+
+
+		}
+	</script>
+</head>
+<body>
+	<div class="content2">
+		<div class="txtshow">距离2016年研究生考试时间还有<span id="timeShow"></span>天</div>
+	</div>
+</body>
+</html>
