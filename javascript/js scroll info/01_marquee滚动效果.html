@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文字滚动 marquee标签知识点</title>
+	<style type="text/css">
+		body,div,dl,dt,dd{margin: 0;padding: 0;}
+
+		.box{ width: 600px;margin: 100px auto;
+			border:1px solid #CCC;
+			padding: 10px 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<dl>
+			<dt>文字滚动示例（默认）：</dt>
+			<dd>
+				<marquee behavior="" direction="">我默认向左滚动。。。。</marquee>
+			</dd>
+		</dl>
+		<dl>
+			<dt>文字滚动示例（向右）</dt>
+			<dd>
+				<marquee behavior="" direction="right" scrolldelay="500">我向右滚动。。。。</marquee>
+			</dd>
+		</dl>
+		<dl>
+			<dt>文字滚动示例（默认方向，滚动方式alternate, 循环3次，速度为2）</dt>
+			<dd>
+				<marquee scrollamount="2" behavior="alternate" direction="" loop="3">我来回滚动。。。。</marquee>
+			</dd>
+		</dl>
+		<dl>
+			<dt>文字滚动示例（向上，背景色为#CCFF66，设置了背景宽度和高度）：</dt>
+			<dd>
+				<marquee behavior="" direction="up" bgcolor="#CCFF66" width="250" height="55">我在区域内滚动，向上哟。。。。</marquee>
+			</dd>
+		</dl>
+	</div>
+</body>
+</html>
